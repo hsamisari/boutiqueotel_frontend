@@ -1,3 +1,6 @@
+# boutiqueotel_frontend
+Yet another hotel management application front_end implemented using angular  
+
 # Boutiquotel
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
