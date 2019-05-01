@@ -1,2 +1,2 @@
 # boutiqueotel_frontend
-An hotel management application in Java Spring 
+Yet another hotel management application front_end implemented using angular  
