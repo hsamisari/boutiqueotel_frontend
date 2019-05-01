@@ -1,0 +1,63 @@
+<div
+  style="padding:100px;background-image: url('assets/login-DSC_8850x.jpg');background-repeat: no-repeat;background-position: center;background-size: cover;height: 100vh;">
+  <div class="card" style="max-width: 400px;margin: auto;background-color:rgba(255, 255, 255, 0.5);">
+    <div class="card-header" style="text-align: center;color: rgba(64, 64, 196, 1.0)">
+      <h4>Alaçatı Konaklama - Giriş</h4>
+    </div>
+    <div class="card-body" style="text-align: left">
+      <form #loginForm="ngForm">
+        <div class="form-group">
+          <label for="username">
+            <h6 style="color:rgba(64, 64, 196, 1.0)">E-Posta / Telefon No</h6>
+          </label>
+          <input type="text" class="form-control" name="username" id="username" required minlength="6"
+            [(ngModel)]="username" #un="ngModel">
+          <div *ngIf="un.invalid && (un.dirty || un.touched)" class="alert alert-danger">
+            <div *ngIf="un.errors">
+              E-posta adresiniz yada cep telefon numaranız zorunludur!
+            </div>
+            <div *ngIf="un.errors">
+              E-posta adresiniz yada cep telefon numaranız en az 5 harf olmalıdır!
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password"></label>
+          <h6 style="color:rgba(64, 64, 196, 1.0)">Şifre</h6>
+          <input type="password" class="form-control" name="password" id="password" required minlength="6"
+            [(ngModel)]="password" #pw="ngModel">
+          <div *ngIf="pw.invalid && (pw.dirty || pw.touched)" class="alert alert-danger">
+            <ul>
+              <div *ngIf="pw.errors">
+                <li>Şifre zorunludur!</li>
+              </div>
+              <div *ngIf="pw.errors">
+                <li>Şifreniz en az 6 harf olmalıdır!</li>
+              </div>
+            </ul>
+          </div>
+        </div>
+        <div class="form-group">
+          <button
+            [ngClass]="restored || (loginForm.valid && loginForm.touched) ? 'btn btn-primary form-control' : 'btn btn-secondary form-control'"
+            [disabled]="!(restored || (loginForm.valid && loginForm.touched))" (click)="login()">Gönder</button>
+        </div>
+        <div *ngIf="loginForm.valid && loginForm.touched">
+          <div class="form-group">
+            <label style="color:rgba(64, 64, 196, 1.0);font-weight: 500;"><input type="checkbox">
+              Şifremi hatırla</label>
+          </div>
+        </div>
+        <hr>
+        <div class="form-group" style="text-align: center;color:rgba(64, 64, 196, 1.0);font-weight:400;">
+          Henüz oteliniz "alacatikonaklama.com" a kayıtlı değilse, ücretsiz <a href="registration">kayıt olun</a>.
+        </div>
+        <hr>
+        <div *ngIf="loginForm.submitted && !!message && message.length > 0" class="alert alert-danger">
+          Lütfen tekrar deneyiniz!
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+.day {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  overflow: hidden;
+  font-size: xx-small;
+  margin-left: 15px;
+  margin-bottom: -10px;
+  transform: rotate(-90deg);
+  transform-origin: left;
+}
+
+.room-header {
+  border-top: solid lightgray 1px;
+  border-left: solid lightgray 1px;
+  width: 100px;
+  overflow: hidden;
+  height: 50px;
+  display: inline-block;
+  font-size: xx-small;
+  padding: 2px;
+  margin: 0;
+}
+
+.scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+}

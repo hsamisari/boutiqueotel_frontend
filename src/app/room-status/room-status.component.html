@@ -1,0 +1,4 @@
+<div style="clear: both; float: none;margin: 0;padding: 0;"></div>
+<div class="room-header" [ngStyle]="{'background-color': room.color}">{{room.name}}</div>
+<app-room-day-status *ngFor="let day of days" [day]='day' [room]="room" [status]="getStatus(day)"></app-room-day-status>
+

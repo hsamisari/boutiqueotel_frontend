@@ -1,0 +1,30 @@
+  <div class="container-fluid">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/dashboard">Menü</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Rezervasyonlar</li>
+      </ol>
+    </nav>
+  </div>
+  <div class="modal" tabindex="-1" role="dialog" id="exampleModal" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Rezervasyon</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <app-reservationo></app-reservationo>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scrolling-wrapper">
+    <div class="room-header"></div>
+    <div class="day" *ngFor="let day of days">{{day | date:'dd / MM'}}</div>
+    <app-room-status *ngFor="let room of rooms" [room]="room" [days]="days"> </app-room-status>
+  </div>

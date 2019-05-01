@@ -1,0 +1,89 @@
+<div class="clearfix">
+  <div class="container-fluid">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/dashboard">Menü</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Kullanıcılar</li>
+      </ol>
+    </nav>
+<!--    <h2 style="color: mediumblue">Kullanıcılar</h2>-->
+    <hr>
+    <form>
+      <div class="row">
+        <div class="col">
+          <input type="hidden" id="id" name="id" [(ngModel)]="id">
+          <div class="control-group">
+            <label for="email" style="margin-bottom: 10px;">E-Posta</label>
+            <input type="email" id="email" name="email" class="form-control" [(ngModel)]="email">
+          </div>
+          <br>
+          <div class="control-group">
+            <label for="fullName" style="margin-bottom: 10px;">Ad Soyad</label>
+            <input type="text" id="fullName" name="fullName" class="form-control" [(ngModel)]="fullName">
+          </div>
+        </div>
+        <div class="col">
+          <div class="control-group">
+            <label for="phoneNumber" style="margin-bottom: 10px;">Cep Tel</label>
+            <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" [(ngModel)]="phoneNumber">
+          </div>
+          <br>
+          <div class="form-check" style="margin: 10px;">
+            <input type="checkbox" id="admin" name="admin" class="form-check-input" [(ngModel)]="admin">
+            <label for="admin" class="form-check-label">Yönetici?</label>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <button (click)="save()" class="btn btn-primary form-control" data-toggle="modal" data-target="#successModal">Kaydet</button>
+        </div>
+        <div class="col">
+          <button (click)="clear()" class="btn btn-success form-control">Yeni</button>
+        </div>
+        <div class="col">
+          <button (click)="delete(user)" class="btn btn-danger form-control">Sil</button>
+        </div>
+      </div>
+    </form>
+    <br>
+    <hr>
+    <table class="table table-striped table-responsive-sm">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">e-posta</th>
+          <th scope="col">Ad Soyad</th>
+          <th scope="col">Tel</th>
+          <th scope="col">@</th>
+        </tr>
+      </thead>
+      <tbody class="table-hover">
+        <tr *ngFor="let usr of users; let rownum = index">
+          <th scope="tr">{{rownum + 1}}</th>
+          <td>{{usr.email}}</td>
+          <td>{{usr.fullName}}</td>
+          <td>{{usr.phoneNumber}}</td>
+          <td><button class="btn btn-primary btn-sm" (click)="edit(usr)"><i class="pi pi-pencil"></i></button></td>
+        </tr>
+      </tbody>
+    </table>
+    <div tabindex="-1" role="dialog" id="successModal" aria-labelledby="labelSuccessModal" aria-hidden="true" >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Bilgi!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h3>{{saveOperationResultMessage}}</h3>
+            <button class="btn btn-success" click="$('#successModal').modal('toggle')">Tamam</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

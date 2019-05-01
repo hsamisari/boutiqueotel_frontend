@@ -1,0 +1,29 @@
+<div class="clearfix">
+  <div class="container-fluid">
+    <form>
+      <input type="hidden" name="id" id="id" [(ngModel)]="reservation.id">
+      <div class="control-group">
+        <label for="room">Oda</label>
+        <select name="room" id="room" class="form-control" [(ngModel)]="reservation.room">
+          <option *ngFor="let room of rooms" [ngValue]="room">{{room.name}}</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label for="endDate">Müşteri</label>
+        <input type="text" name="endDate" id="endDate" class="form-control" [(ngModel)]="reservation.endDate">
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <button class="btn btn-success form-control" (click)="save()">Kaydet</button>
+        </div>
+        <div class="col-sm">
+          <button class="btn btn-primary form-control" (click)="clear()">Yeni</button>
+        </div>
+        <br>
+        <div class="col-sm">
+          <button class="btn btn-danger form-control" (click)="delete()">Sil</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

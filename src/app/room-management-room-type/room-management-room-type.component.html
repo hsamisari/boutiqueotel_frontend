@@ -1,0 +1,42 @@
+<div class="clearfix">
+  <div class="container-fluid">
+    <h4>Oda Tipi</h4>
+    <hr>
+    <form>
+      <input type="hidden" name="id" id="id" [(ngModel)]="id">
+      <div class="control-group">
+        <label for="name">Adı</label>
+        <input type="text" name="name" id="name" class="form-control" [(ngModel)]="name">
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <button class="btn btn-success form-control" (click)="save()">Kaydet</button>
+        </div>
+        <div class="col-sm">
+          <button class="btn btn-primary form-control" (click)="clear()">Yeni</button>
+        </div>
+        <br>
+        <div class="col-sm">
+          <button class="btn btn-danger form-control" (click)="delete()">Sil</button>
+        </div>
+      </div>
+    </form>
+    <br>
+    <table class="table table-striped table-responsive-sm">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Adı</th>
+          <th scope="col">@</th>
+        </tr>
+      </thead>
+      <tbody class="table-hover">
+        <tr *ngFor="let t of types; let rownum = index">
+          <th scope="tr">{{rownum + 1}}</th>
+          <td>{{t}}</td>
+          <td><button class="btn btn-primary btn-sm" (click)="edit(t)"><i class="pi pi-pencil"></i></button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

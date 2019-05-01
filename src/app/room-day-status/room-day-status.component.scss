@@ -1,0 +1,29 @@
+.day-free {
+  border-top: solid lightgray 1px;
+  border-left: solid lightgray 1px;
+  width: 30px;
+  height: 50px;
+  display: inline-block;
+  overflow: hidden;
+  padding: 5px;
+  margin: 0;
+  background-repeat: no-repeat;
+}
+
+.day-checkin {
+  background-image: url("/assets/checkIn.png");
+  background-position: right;
+}
+
+.day-checkout {
+  background-image: url("/assets/checkOut.png");
+  background-position: left;
+}
+.day-checkinout {
+  background-image: url("/assets/checkInOut.png");
+  background-position: right;
+}
+.day-reserved {
+  background-image: url("/assets/reserved.png");
+  background-position: right;
+}

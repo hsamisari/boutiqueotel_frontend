@@ -1,0 +1,169 @@
+<div class="clearfix">
+  <div class="container-fluid">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/dashboard">Menü</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Ön Muhasebe</li>
+      </ol>
+    </nav>
+    <form>
+      <div class="row">
+        <div class="col-md">
+          <div class="row">
+            <div class="col-sm">
+              <div class="control-group">
+                <label for="transactionDate">İşlem tarihi</label>
+                <div class="input-group">
+                  <input [matDatepicker]="myDatepicker" id="transactionDate" name="transactionDate"
+                    class="input form-control" [(ngModel)]="transactionDate">
+                  <span class="input-group-append">
+                    <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
+                  </span>
+                  <mat-datepicker #myDatepicker></mat-datepicker>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm">
+              <div class="control-group">
+                <label for="amount">Toplam Tutar</label>
+                <input type="number" id="amount" name="amount" class="form-control" [(ngModel)]="amount">
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="control-group">
+                <label for="vat">K.D.V.</label>
+                <input type="number" id="vat" name="vat" class="form-control" [(ngModel)]="vat">
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="control-group">
+                <label for="currency">Para Birimi</label>
+                <select class="form-control" name="currency" [(ngModel)]="currency">
+                  <option value="TL">TL</option>
+                  <option value="USD">USD</option>
+                  <option value="AVRO">AVRO</option>
+                  <option value="PAUND">PAUND/Sterlin</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md">
+              <div class="control-group">
+                <label for="accountReceivable">Ödeme Şekli</label>
+                <select class="form-control" name="accountReceivable" id="accountReceivable"
+                  [(ngModel)]="accountReceivable">
+                  <option value="kasa">nakit</option>
+                  <option value="bankalar">kredi kartı ve diğer banka ödemeleri</option>
+                  <option value="cari">Cari hesap</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col-md">
+              <div class="control-group">
+                <label for="accountPayable">İşlem Tipi</label>
+                <select class="form-control" name="accountPayable" id="accountPayable" [(ngModel)]="accountPayable">
+                  <option value="Gelirler - Ağırlama">Gelirler - Ağırlama</option>
+                  <option value="Gelirler - Faaliyet Dışı">Gelirler - Faaliyet Dışı</option>
+                  <option value="İşletme Giderleri - Çamaşır">İşletme Giderleri - Çamaşır</option>
+                  <option value="İşletme Giderleri - Personel">İşletme Giderleri - Personel</option>
+                  <option value="İşletme Giderleri - Kira">İşletme Giderleri - Kira</option>
+                  <option value="İşletme Giderleri - Isınma">İşletme Giderleri - Isınma</option>
+                  <option value="İşletme Giderleri - Su">İşletme Giderleri - Su</option>
+                  <option value="İşletme Giderleri - Elektrik">İşletme Giderleri - Elektrik</option>
+                  <option value="İşletme Giderleri - Telefon / Faks">İşletme Giderleri - Telefon / Faks</option>
+                  <option value="İşletme Giderleri - İnternet">İşletme Giderleri - İnternet</option>
+                  <option value="İşletme Giderleri - Sigortalar">İşletme Giderleri - Sigortalar</option>
+                  <option value="İşletme Giderleri - Tamir ve Bakım">İşletme Giderleri - Tamir ve Bakım</option>
+                  <option value="İşletme Giderleri - Faiz">İşletme Giderleri - Faiz</option>
+                  <option value="İşletme Giderleri - Diğer">İşletme Giderleri - Diğer</option>
+                  <option value="Yönetim Giderleri - Demirbaş Alımları">Yönetim Giderleri - Demirbaş Alımları
+                  </option>
+                  <option value="Yönetim Giderleri - Diğer Ticari Mal ve Hizmet Alımları">Yönetim Giderleri - Diğer
+                    Ticari
+                    Mal ve Hizmet Alımları</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md">
+              <div class="control-group">
+                <label for="description">Açıklama</label>
+                <input type="text" id="description" name="description" class="form-control" [(ngModel)]="description">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md">
+              <div class="row">
+                <div class="col-sm">
+                  <div class="control-group">
+                    <label for="documentNo">Belge Tipi</label>
+                    <select class="form-control" name="documentType" id="documentType" [(ngModel)]="documentType">
+                      <option value="Fatura">Fatura</option>
+                      <option value="Fiş">Fiş</option>
+                      <option value="Gider Makbuzu">Gider Makbuzu</option>
+                      <option value="Banka dekontu">Banka Dekontu</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm">
+                  <div class="control-group">
+                    <label for="documentNo">Belge No</label>
+                    <input type="text" id="documentNo" name="documentNo" class="form-control" [(ngModel)]="documentNo">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <button class="btn btn-success form-control" (click)="save()">Kaydet</button>
+        </div>
+        <div class="col">
+          <button class="btn btn-primary form-control" (click)="save()">Yeni</button>
+        </div>
+        <div class="col">
+          <button class="btn btn-danger form-control" (click)="save()">Sil</button>
+        </div>
+        <div class="col">
+          <button class="btn btn-secondary form-control" (click)="save()">Kayıtları Filtrele</button>
+        </div>
+      </div>
+    </form>
+
+    <br>
+    <hr>
+    <table class="table table-striped table-responsive-sm">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">"İşlem TarihSaati"</th>
+          <th scope="col">Açıklama</th>
+          <th scope="col">Tutar</th>
+          <th scope="col">Döviz Tipi</th>
+        </tr>
+      </thead>
+      <tbody class="table-hover">
+        <tr *ngFor="let t of transactions; let rownum = index">
+          <th scope="tr">{{rownum + 1}}</th>
+          <td>{{t.transactionDate}}</td>
+          <td>{{t.description}}</td>
+          <td>{{t.amount}}</td>
+          <td>{{t.currency}}</td>
+          <td><button class="btn btn-primary btn-sm" (click)="edit(t)"><i class="pi pi-pencil"></i></button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

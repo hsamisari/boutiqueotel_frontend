@@ -1,0 +1,49 @@
+<div style="padding:100px;background-image: url('assets/login-DSC_8850x.jpg');background-repeat: no-repeat;background-position: center;background-size: cover;height: 100vh;">
+  <div class="card" style="max-width: 400px;margin: auto;background-color:rgba(255, 255, 255, 0.5);">
+    <div class="card-header" style="text-align: center;color: rgba(64, 64, 196, 1.0)">
+      <h4>Alaçatı Konaklama - Kayıt Formu</h4>
+      <br>
+      Daha önce kayıt yaptırdıysanız <a [routerLink]="[ '/login']">giriş yapın</a>
+    </div>
+    <div class="card-body" style="text-align: left">
+      <form >
+        <div class="form-group">
+          <label for="hotelName"><h6 style="color:rgba(64, 64, 196, 1.0)">Otel Adı</h6></label>
+          <input type="text" class="form-control" name="hotelName" id="hotelName" placeholder="Otel Adı" [(ngModel)]="registration.hotelName" required>
+        </div>
+        <div class="form-group">
+          <label for="email"><h6 style="color:rgba(64, 64, 196, 1.0)">Otel E-Posta adresi</h6></label>
+          <input type="text" class="form-control" name="email" id="email" placeholder="oteladi@gmail.com" [(ngModel)]="registration.hotelEmail" >
+        </div>
+        <div class="form-group">
+          <label for="phoneNumber"><h6 style="color:rgba(64, 64, 196, 1.0)">Otel Telefon No</h6></label>
+          <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="02321234567" [(ngModel)]="registration.hotelPhoneNumber" required >
+        </div>
+
+        <div class="form-group">
+          <label for="contactName"><h6 style="color:rgba(64, 64, 196, 1.0)">Yetkili' nin otel ile ilgisi</h6></label>
+          <select class="form-control" name="contactName" id="contactName" [(ngModel)]="registration.contactRelationshipToHotel" >
+            <option value="Sahibi">Otel Sahibi</option>
+            <option value="Sahibi">Otel İşletmecisi</option>
+            <option value="Sahibi">Otel Müdürü</option>
+            <option value="Sahibi">Diğer Otel Personeli</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="contactName"><h6 style="color:rgba(64, 64, 196, 1.0)">Yetkili adı soyadı</h6></label>
+          <input type="text" class="form-control" name="contactName" id="contactName" placeholder="Ad Soyad" [(ngModel)]="registration.contactFullName">
+        </div>
+        
+        <div class="form-group">
+          <label for="contactPhoneNumber"><h6 style="color:rgba(64, 64, 196, 1.0)">Yetkili telefon no</h6></label>
+          <input type="text" class="form-control" name="contactPhoneNumber" id="contactPhoneNumber" placeholder="05321234567" [(ngModel)]="registration.contactPhoneNumber">
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-primary form-control" (click)="submit()">Gönder</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
